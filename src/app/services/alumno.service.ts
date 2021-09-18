@@ -32,7 +32,7 @@ export class AlumnoService {
     return this.http.post<Alumno>(this.baseEndpoint, alumno, {headers: this.header});
   }
   public editar(alumno: Alumno): Observable<Alumno>{
-    return this.http.put<Alumno>(`${this.baseEndpoint}/${alumno.id}`, {headers: this.header});
+    return this.http.put<Alumno>(`${this.baseEndpoint}/${alumno.id}`, alumno, {headers: this.header});
   }
   public eliminar(id: number): Observable<void>{
     return this.http.delete<void>(`${this.baseEndpoint}/${id}`);

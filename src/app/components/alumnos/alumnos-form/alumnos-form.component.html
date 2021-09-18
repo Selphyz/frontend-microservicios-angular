@@ -5,18 +5,22 @@
         <form>
             <div class="form-group my-1">
                 <label for="">Nombre</label>
-                <input type="text" name="nombre" class="form-control" [(ngModel)]="alumno.nombre">
+                <input type="text" name="nombre" id="nombre" class="form-control" [(ngModel)]="alumno.nombre">
+                <div *ngIf="error?.nombre" class="alert alert-danger">{{error.nombre}}</div>
             </div>
             <div class="form-group my-1">
                 <label for="">Apellido</label>
-                <input type="text" name="apellido" class="form-control" [(ngModel)]="alumno.apellido">
+                <input type="text" name="apellido" id="apellido" class="form-control" [(ngModel)]="alumno.apellido">
+                <div *ngIf="error?.apellido" class="alert alert-danger">{{error.apellido}}</div>
             </div>
             <div class="form-group my-1">
                 <label for="">Email</label>
-                <input type="email" name="email" class="form-control" [(ngModel)]="alumno.email">
+                <input type="email" name="email" id="email" class="form-control" [(ngModel)]="alumno.email">
+                <div *ngIf="error?.email" class="alert alert-danger">{{error.email}}</div>
             </div>
             <div class="form-group my-1">
-                <button type="button" class="btn btn-info mt-1" (click)="crear()">Crear</button>
+                <button type="button" class="btn btn-info mt-1" 
+                (click)="alumno.id? editar(): crear()">{{alumno.id ? 'Editar':'Crear'}}</button>
             </div>
         </form>
     </div>
